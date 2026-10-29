@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="latar">#12100E</color>
+    <style name="Tema" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/latar</item>
+        <item name="android:statusBarColor">@color/latar</item>
+        <item name="android:navigationBarColor">@color/latar</item>
+        <item name="android:colorAccent">#E3AC5F</item>
+    </style>
+</resources>

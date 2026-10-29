@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mode terang HP. Mode gelap ada di values-night/tema.xml. Warna latar sama dengan token bg di theme-dark.css. -->
+    <color name="latar">#FAF7F2</color>
+    <style name="Tema" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/latar</item>
+        <item name="android:statusBarColor">@color/latar</item>
+        <item name="android:navigationBarColor">@color/latar</item>
+        <item name="android:colorAccent">#9E5A0C</item>
+    </style>
+</resources>

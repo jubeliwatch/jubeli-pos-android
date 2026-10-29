@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+/* versi diisi GitHub Actions: VERSI_KODE = nomor build, VERSI_NAMA = tag (mis. 1.2.0) */
+def versiKode = (System.getenv('VERSI_KODE') ?: '1') as int
+def versiNama = System.getenv('VERSI_NAMA') ?: '1.0.0'
+def kunci = System.getenv('KEYSTORE_FILE')
+
+android {
+    namespace 'com.ayrigitar.app'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 34
+        applicationId 'com.jubeliwatch.pos'
+        versionCode versiKode
+        versionName versiNama
+    }
+
+    buildFeatures { buildConfig true }
+
+
+    signingConfigs {
+        rilis {
+            if (kunci) {
+                storeFile file(kunci)
+                storeType 'pkcs12'
+                storePassword System.getenv('KEYSTORE_PASS')
+                keyAlias 'jubeli'
+                keyPassword System.getenv('KEYSTORE_PASS')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (kunci) signingConfig signingConfigs.rilis
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.webkit:webkit:1.11.0'
+}
