@@ -52,4 +52,4 @@ jobs:
         if: github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" jubeli-pos.apk --title "Jubeli POS $GITHUB_REF_NAME" --notes "Jubeli POS: Android app for https://jubeliwatch.github.io/admin.html"
+        run: gh release create "$GITHUB_REF_NAME" jubeli-pos.apk --title "Jubeli POS $GITHUB_REF_NAME" --notes "Android app for https://jubeliwatch.github.io/admin.html"
